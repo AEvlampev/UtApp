@@ -1,15 +1,23 @@
 import sys
 
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QInputDialog
+from PyQt5 import QtGui
 from PyQt5.QtGui import QPixmap
 import requests
 import _datetime
+from forex_python.converter import CurrencyRates
+from datetimerange import DateTimeRange
+import pyqtgraph
 
 
 def convert_from_unix_to_datetime(unix_time):
     datetime = _datetime.datetime.fromtimestamp(unix_time)
     return datetime
+
+
+def toFixed(numObj, digits=0):
+    return f"{numObj:.{digits}f}"
 
 
 class WeatherWindow(QMainWindow):
@@ -89,15 +97,92 @@ class WeatherWindow(QMainWindow):
         main_window.show()
 
 
+class MoneyWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.second_cur_ok = None
+        self.second_cur = None
+        self.first_cur_ok = None
+        self.first_cur = None
+        uic.loadUi('money_window.ui', self)
+        self.choose_cur_first_button.clicked.connect(self.choose_first_cur)
+        self.choose_cur_second_button.clicked.connect(self.choose_second_cur)
+        self.graphicsView.setXRange(0, 7, padding=0)
+        color = self.palette().color(QtGui.QPalette.Window)  # Get the default window background,
+        self.graphicsView.setBackground((255, 255, 255))
+
+    def choose_first_cur(self):
+        cur_rates = CurrencyRates()
+        curs = cur_rates.get_rates('USD').keys()
+        self.first_cur, self.first_cur_ok = QInputDialog.getItem(
+            self, "UtApp - валюта", "Выберите валюту:",
+            tuple(curs), 1, False)
+        if self.first_cur_ok:
+            self.label.setText(self.first_cur)
+        if self.first_cur_ok and self.second_cur_ok:
+            self.label_2.setText(self.second_cur)
+            cur_rates = CurrencyRates()
+            self.second_cur_edit.setText(str(toFixed(cur_rates.convert(self.first_cur,
+                                                                       self.second_cur,
+                                                                       float(self.first_cur_edit.text())), 2)))
+            time_range = DateTimeRange(_datetime.date.today() - _datetime.timedelta(days=7), _datetime.date.today())
+            cur_list = []
+            for date in time_range.range(_datetime.timedelta(days=1)):
+                cur_list.append(cur_rates.convert(self.first_cur, self.second_cur, amount=1, date_obj=date))
+            day_list = [abs(0 - day) for day in range(0, 8)]
+            pen = pyqtgraph.mkPen(color=(0, 0, 0))
+            self.graphicsView.setTitle(f"Курс {self.first_cur} к {self.second_cur} за последние 7 дней.",
+                                       color=(0, 0, 0), size='9pt')
+            styles = {'color': (0, 0, 0), 'font-size': '9pt'}
+            self.graphicsView.setLabel('left', f'Курс {self.first_cur} к {self.second_cur} в у.е.', **styles)
+            self.graphicsView.setLabel('bottom', 'Время', **styles)
+            self.graphicsView.plot(day_list, cur_list, pen=pen)
+
+    def choose_second_cur(self):
+        cur_rates = CurrencyRates()
+        curs = cur_rates.get_rates('USD').keys()
+        self.second_cur, self.second_cur_ok = QInputDialog.getItem(
+            self, "UtApp - валюта", "Выберите валюту:",
+            tuple(curs), 1, False)
+        if self.first_cur_ok and self.second_cur_ok:
+            self.label_2.setText(self.second_cur)
+            cur_rates = CurrencyRates()
+            self.second_cur_edit.setText(str(toFixed(cur_rates.convert(self.first_cur,
+                                                                       self.second_cur,
+                                                                       float(self.first_cur_edit.text())), 2)))
+            time_range = DateTimeRange(_datetime.date.today() - _datetime.timedelta(days=7), _datetime.date.today())
+            cur_list = []
+            for date in time_range.range(_datetime.timedelta(days=1)):
+                cur_list.append(cur_rates.convert(self.first_cur, self.second_cur, amount=1, date_obj=date))
+            day_list = [abs(0 - day) for day in range(0, 8)]
+            pen = pyqtgraph.mkPen(color=(0, 0, 0))
+            self.graphicsView.setTitle(f"Курс {self.first_cur} к {self.second_cur} за последние 7 дней.",
+                                       color=(0, 0, 0), size='9pt')
+            styles = {'color': (0, 0, 0), 'font-size': '9pt'}
+            self.graphicsView.setLabel('left', f'Курс {self.first_cur} к {self.second_cur} в у.е.', **styles)
+            self.graphicsView.setLabel('bottom', 'Время', **styles)
+            self.graphicsView.plot(day_list, cur_list, pen=pen)
+
+    def closeEvent(self, event):
+        self.close()
+        main_window.show()
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.wnd = None
         uic.loadUi('main_window.ui', self)
         self.weather.clicked.connect(self.show_weather)
+        self.money.clicked.connect(self.show_money)
 
     def show_weather(self):
         self.wnd = WeatherWindow()
+        self.wnd.show()
+        self.hide()
+
+    def show_money(self):
+        self.wnd = MoneyWindow()
         self.wnd.show()
         self.hide()
 

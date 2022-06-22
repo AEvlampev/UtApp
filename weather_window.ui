@@ -14,14 +14,14 @@
    <string>UtApp - Погода</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(220, 220, 220);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
+      <y>50</y>
       <width>451</width>
       <height>71</height>
      </rect>
@@ -836,7 +836,7 @@
    <widget class="QLabel" name="static_label_1">
     <property name="geometry">
      <rect>
-      <x>15</x>
+      <x>10</x>
       <y>130</y>
       <width>105</width>
       <height>15</height>
@@ -873,7 +873,7 @@
    <widget class="QLabel" name="static_label_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>25</x>
       <y>145</y>
       <width>49</width>
       <height>15</height>
@@ -910,7 +910,7 @@
    <widget class="QLabel" name="static_label_3">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>25</x>
       <y>160</y>
       <width>56</width>
       <height>15</height>
@@ -947,7 +947,7 @@
    <widget class="QLabel" name="static_label_4">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>25</x>
       <y>175</y>
       <width>105</width>
       <height>15</height>
@@ -984,7 +984,7 @@
    <widget class="QLabel" name="latitude_label">
     <property name="geometry">
      <rect>
-      <x>145</x>
+      <x>140</x>
       <y>145</y>
       <width>56</width>
       <height>15</height>
@@ -1021,7 +1021,7 @@
    <widget class="QLabel" name="longitude_label">
     <property name="geometry">
      <rect>
-      <x>145</x>
+      <x>140</x>
       <y>160</y>
       <width>63</width>
       <height>15</height>
@@ -1058,7 +1058,7 @@
    <widget class="QLabel" name="sunrise_time_label">
     <property name="geometry">
      <rect>
-      <x>145</x>
+      <x>140</x>
       <y>175</y>
       <width>84</width>
       <height>15</height>
@@ -1095,7 +1095,7 @@
    <widget class="QLabel" name="static_label_5">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>235</x>
       <y>145</y>
       <width>84</width>
       <height>15</height>
@@ -1132,7 +1132,7 @@
    <widget class="QLabel" name="temperature_label">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>345</x>
       <y>145</y>
       <width>105</width>
       <height>15</height>
@@ -1169,7 +1169,7 @@
    <widget class="QLabel" name="static_label_6">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>235</x>
       <y>160</y>
       <width>98</width>
       <height>15</height>
@@ -1206,7 +1206,7 @@
    <widget class="QLabel" name="feels_like_label">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>345</x>
       <y>160</y>
       <width>105</width>
       <height>15</height>
@@ -1243,7 +1243,7 @@
    <widget class="QLabel" name="static_label_7">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>235</x>
       <y>175</y>
       <width>70</width>
       <height>15</height>
@@ -1280,7 +1280,7 @@
    <widget class="QLabel" name="visibility_label">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>345</x>
       <y>175</y>
       <width>105</width>
       <height>15</height>
@@ -1317,7 +1317,7 @@
    <widget class="QLabel" name="static_label_8">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>265</x>
       <y>190</y>
       <width>16</width>
       <height>16</height>
@@ -1357,7 +1357,7 @@
    <widget class="QLabel" name="pop_label">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>345</x>
       <y>190</y>
       <width>105</width>
       <height>15</height>
@@ -1394,7 +1394,7 @@
    <widget class="QLabel" name="static_label_9">
     <property name="geometry">
      <rect>
-      <x>15</x>
+      <x>10</x>
       <y>210</y>
       <width>168</width>
       <height>15</height>
@@ -1431,7 +1431,7 @@
    <widget class="QLabel" name="grn_pres_label">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>195</x>
       <y>210</y>
       <width>56</width>
       <height>15</height>
@@ -1468,7 +1468,7 @@
    <widget class="QLabel" name="static_label_10">
     <property name="geometry">
      <rect>
-      <x>15</x>
+      <x>10</x>
       <y>225</y>
       <width>182</width>
       <height>15</height>
@@ -1505,7 +1505,7 @@
    <widget class="QLabel" name="sea_pres_label">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>195</x>
       <y>225</y>
       <width>56</width>
       <height>15</height>
@@ -1542,7 +1542,7 @@
    <widget class="QLabel" name="static_label_12">
     <property name="geometry">
      <rect>
-      <x>15</x>
+      <x>10</x>
       <y>240</y>
       <width>70</width>
       <height>15</height>
@@ -1579,7 +1579,7 @@
    <widget class="QLabel" name="hmd_label">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>195</x>
       <y>240</y>
       <width>56</width>
       <height>15</height>
@@ -1616,7 +1616,7 @@
    <widget class="QLabel" name="static_label_11">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>25</x>
       <y>190</y>
       <width>91</width>
       <height>15</height>
@@ -1653,7 +1653,7 @@
    <widget class="QLabel" name="sunset_time_label">
     <property name="geometry">
      <rect>
-      <x>145</x>
+      <x>140</x>
       <y>190</y>
       <width>77</width>
       <height>15</height>
@@ -1690,7 +1690,7 @@
    <widget class="QLabel" name="static_label_13">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>265</x>
       <y>210</y>
       <width>105</width>
       <height>15</height>
@@ -1727,7 +1727,7 @@
    <widget class="QLabel" name="static_label_14">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>265</x>
       <y>225</y>
       <width>84</width>
       <height>15</height>
@@ -1764,7 +1764,7 @@
    <widget class="QLabel" name="static_label_15">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>265</x>
       <y>240</y>
       <width>91</width>
       <height>15</height>
@@ -1801,7 +1801,7 @@
    <widget class="QLabel" name="sow_label">
     <property name="geometry">
      <rect>
-      <x>385</x>
+      <x>380</x>
       <y>210</y>
       <width>71</width>
       <height>16</height>
@@ -1838,7 +1838,7 @@
    <widget class="QLabel" name="direction_label">
     <property name="geometry">
      <rect>
-      <x>385</x>
+      <x>380</x>
       <y>225</y>
       <width>71</width>
       <height>16</height>
@@ -1875,7 +1875,7 @@
    <widget class="QLabel" name="gust_label">
     <property name="geometry">
      <rect>
-      <x>385</x>
+      <x>380</x>
       <y>240</y>
       <width>71</width>
       <height>16</height>
@@ -1912,7 +1912,7 @@
    <widget class="QLabel" name="static_label_16">
     <property name="geometry">
      <rect>
-      <x>5</x>
+      <x>0</x>
       <y>260</y>
       <width>462</width>
       <height>15</height>
@@ -1950,7 +1950,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>110</y>
+      <y>30</y>
       <width>462</width>
       <height>15</height>
      </rect>

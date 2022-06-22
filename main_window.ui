@@ -14,7 +14,7 @@
    <string>UtApp</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(193, 193, 193);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="money">
